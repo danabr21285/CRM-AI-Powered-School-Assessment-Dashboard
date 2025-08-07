@@ -15,7 +15,7 @@ An AI-augmented dashboard concept built inside CRM to support admissions recruit
 
 #### 🖼️ Sample Output (Mockup)
 
-![AI Dashboard Example](images/slate_ai_dashboard_mockup.png)
+![AI Dashboard Example](Mock School Dashnboard.png)
 
 ---
 🧠 *Project Status:* Internal prototype (not deployed). Prompt logic, scoring system, and badge mechanics authored and maintained by Dana Brooks.
