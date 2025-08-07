@@ -1,8 +1,8 @@
-# 🧠 AI-Powered School Assessment Dashboard (Slate CRM Simulation)
+# 🧠 AI-Powered School Assessment Dashboard (CRM Simulation)
 
-An AI-augmented dashboard concept built inside Slate CRM to support admissions recruitment strategy. Using dynamic scoring logic, it evaluates historical applicant funnel data and assigns a school priority badge (Top, Medium, Low) with an auto-generated summary and debug notes.
+An AI-augmented dashboard concept built inside CRM to support admissions recruitment strategy. Using dynamic scoring logic, it evaluates historical applicant funnel data and assigns a school priority badge (Top, Medium, Low) with an auto-generated summary and debug notes.
 
-> ⚠️ *This is a conceptual showcase. No real student data or proprietary Slate schema is included.*
+> ⚠️ *This is a conceptual showcase. No real student data or proprietary schema is included.*
 
 ---
 
@@ -27,8 +27,8 @@ An AI-augmented dashboard concept built inside Slate CRM to support admissions r
 - Accepts ≥ 30 → +4 pts, 10–29 → +3, 1–9 → +2, 0 → −1  
 - Applications ≥ 40 → +3, 1–39 → +2, 0 → −1  
 - Inquiries ≥ 30 → +3, 1–29 → +2, 0 → −1  
-- If visited in past 3 years → +1  
-- If in PA, GA, FL, NJ, or DE → +2  
+- If visited in past 4 years → +1  
+- If in MM, AS, DC, PR, or UK → +2  
 - If no org contact exists → −1  
 
 ---
@@ -45,7 +45,7 @@ An AI-augmented dashboard concept built inside Slate CRM to support admissions r
 
 ## 🛠️ Technologies Used
 
-- Slate CRM Custom Dashboards  
+- CRM Custom Dashboards  
 - Prompt Engineering for AI Output  
 - Conditional Logic & Query Parameters  
 - Badge Rendering via Shields.io  
@@ -55,7 +55,6 @@ An AI-augmented dashboard concept built inside Slate CRM to support admissions r
 ## 👩‍💼 Author
 
 **Dana Brooks**  
-Executive Director of Admissions | Data & AI Strategist  
 📧 danatallent@yahoo.com  
 🔗 [LinkedIn](https://linkedin.com/in/dana-tallent-brooks-a15977a0)
 
