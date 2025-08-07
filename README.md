@@ -13,10 +13,6 @@ An AI-augmented dashboard concept built inside CRM to support admissions recruit
 - Toggleable scoring and debug breakdowns
 - Supports strategic recruitment planning for admissions officers
 
-#### 🖼️ Sample Output (Mockup)
-
-![AI Dashboard Example](Mock20%School20%Dashnboard.png)
-
 ---
 🧠 *Project Status:* Internal prototype (not deployed). Prompt logic, scoring system, and badge mechanics authored and maintained by Dana Brooks.
 ---
