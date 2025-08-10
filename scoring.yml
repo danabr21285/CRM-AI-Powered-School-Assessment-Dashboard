@@ -1,0 +1,37 @@
+rules:
+  sales_units:
+    bins:
+      - [500, 8]
+      - [300, 6]
+      - [100, 4]
+      - [0, -1]
+  revenue:
+    bins:
+      - [1000000, 4]
+      - [500000, 3]
+      - [100000, 2]
+      - [0, -1]
+  new_clients:
+    bins:
+      - [50, 3]
+      - [20, 2]
+      - [1, 1]
+      - [0, -1]
+  repeat_orders:
+    bins:
+      - [200, 3]
+      - [50, 2]
+      - [1, 1]
+      - [0, -1]
+  visited_last_year:
+    true: 1
+  strategic_region:
+    values: ["APAC", "EMEA", "NAM"]
+    points: 2
+  missing_account_manager:
+    when_false_has_manager: -1
+
+badges:
+  top:    {min: 18, max: 28}
+  medium: {min: 13, max: 17}
+  low:    {min: 0, max: 12}
