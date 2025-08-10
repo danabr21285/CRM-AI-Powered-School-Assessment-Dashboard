@@ -1,59 +1,148 @@
-# 🧠 AI-Powered School Assessment Dashboard (CRM Simulation)
+# 📊 PromptBadge — AI-Assisted Badge Assignment from Business Data
 
-An AI-augmented dashboard concept built inside CRM to support admissions recruitment strategy. Using dynamic scoring logic, it evaluates historical applicant funnel data and assigns a school priority badge (Top, Medium, Low) with an auto-generated summary and debug notes.
+An AI-powered pipeline that ingests **structured business performance data** (CSV or SQL), applies transparent **scoring rules stored in YAML**, assigns a **priority badge** (Top / Medium / Low), and generates **LLM-written performance summaries**.
 
-> ⚠️ *This is a conceptual showcase. No real student data or proprietary schema is included.*
-
----
-
-#### 🔍 Features
-- GPT-generated summary of school funnel performance (Applications, Accepts, Confirms, Inquiries)
-- Priority scoring based on defined thresholds
-- Automatic badge assignment (e.g., ![Top Priority School](https://img.shields.io/badge/Top%20Priority%20School-forestgreen))
-- Toggleable scoring and debug breakdowns
-- Supports strategic recruitment planning for admissions officers
-
----
-🧠 *Project Status:* Internal prototype (not deployed). Prompt logic, scoring system, and badge mechanics authored and maintained by Dana Brooks.
----
-
-## ⚙️ Scoring Logic Summary
-
-- Confirms ≥ 10 → +8 pts, 6–8 → +6, 1–5 → +4  
-- Accepts ≥ 30 → +4 pts, 10–29 → +3, 1–9 → +2, 0 → −1  
-- Applications ≥ 40 → +3, 1–39 → +2, 0 → −1  
-- Inquiries ≥ 30 → +3, 1–29 → +2, 0 → −1  
-- If visited in past 4 years → +1  
-- If in MM, AS, DC, PR, or UK → +2  
-- If no org contact exists → −1  
+> ⚠️ Demo only — uses public or synthetic data. No confidential or proprietary data included.
 
 ---
 
-## 🏷️ Badge Assignment
+## 🔍 Overview
 
-| Range | Badge |
-|-------|--------|
-| 18–28 | ![Top Priority](https://img.shields.io/badge/Top%20Priority%20School-forestgreen) |
-| 13–17 | ![Medium Priority](https://img.shields.io/badge/Medium%20Priority%20School-yellow) |
-| 0–12  | ![Low Priority](https://img.shields.io/badge/Low%20Priority%20School-red) |
+**PromptBadge** combines:
+- **Structured data analysis** — using sales, revenue, and customer KPIs
+- **Prompt engineering** — generating AI-written performance summaries
+- **Config-driven scoring** — rules and thresholds stored in **YAML files** for easy updates
 
----
-
-## 🛠️ Technologies Used
-
-- CRM Custom Dashboards  
-- Prompt Engineering for AI Output  
-- Conditional Logic & Query Parameters  
-- Badge Rendering via Shields.io  
+This setup allows you to change scoring logic **without editing code**.
 
 ---
 
-## 👩‍💼 Author
+## ✨ Key Features
 
-**Dana Brooks**  
-📧 danatallent@yahoo.com  
-🔗 [LinkedIn](https://linkedin.com/in/dana-tallent-brooks-a15977a0)
+- Load data from **CSV or SQL query**
+- Score each entity using **configurable rules in YAML**
+- Assign **visual priority badges** using [Shields.io](https://shields.io)
+- Generate **AI summaries** linked to real metrics
+- Save **full prompts and model responses** for audit and reproducibility
 
 ---
 
-> “Turning raw funnel data into strategic recruitment intelligence.”
+## ⚙️ Example Scoring Logic (stored in YAML)
+
+In **PromptBadge**, scoring rules are stored in a `config/scoring.yml` file.  
+**YAML** (short for *YAML Ain’t Markup Language*) is a **human-readable format** for structured data, often used for configuration files.
+
+**Example `config/scoring.yml`:**
+```yaml
+rules:
+  sales_units:
+    bins:
+      - [500, 8]
+      - [300, 6]
+      - [100, 4]
+      - [0, -1]
+  revenue:
+    bins:
+      - [1000000, 4]
+      - [500000, 3]
+      - [100000, 2]
+      - [0, -1]
+  new_clients:
+    bins:
+      - [50, 3]
+      - [20, 2]
+      - [1, 1]
+      - [0, -1]
+  repeat_orders:
+    bins:
+      - [200, 3]
+      - [50, 2]
+      - [1, 1]
+      - [0, -1]
+  visited_last_year:
+    true: 1
+  strategic_region:
+    values: ["APAC", "EMEA", "NAM"]
+    points: 2
+  missing_account_manager:
+    when_false_has_manager: -1
+
+badges:
+  top:    {min: 18, max: 28}
+  medium: {min: 13, max: 17}
+  low:    {min: 0, max: 12}
+```
+### 🧪 Prompt Engineering
+### System Prompt
+```
+You are a business analyst. Given structured performance metrics for an account or region, 
+write a 3–4 sentence summary and one-sentence recommendation. 
+Reference actual numbers; if data is missing, say so.
+```
+### User Prompt Template
+```
+ENTITY: {{name}} (id={{entity_id}})
+METRICS:
+- Sales (units): {{sales_units}}
+- Revenue: {{revenue}}
+- New Clients: {{new_clients}}
+- Repeat Orders: {{repeat_orders}}
+- Region: {{region}}
+- Market Visits (last year): {{market_visits}}
+
+SCORING:
+- Rule hits: {{rule_hits}}
+- Total score: {{score}} → Badge: {{badge}}
+```
+### 📂 Repo Structure
+```
+promptbadge/
+├─ README.md
+├─ config/
+│  └─ scoring.yml         # scoring rules and badge thresholds
+├─ data/
+│  ├─ raw/                # synthetic/public CSV or SQL exports
+│  └─ processed/          # cleaned tables
+├─ src/
+│  ├─ query.py            # load CSV/SQL
+│  ├─ scoring.py          # apply rules from YAML
+│  ├─ prompts.py          # prompt templates
+│  ├─ llm.py              # LLM API wrapper
+│  └─ export.py           # save badges, summaries, prompts
+├─ artifacts/
+│  ├─ prompts/            # saved prompts for audit
+│  └─ responses/          # saved model outputs
+└─ requirements.txt
+```
+### 🚀 Getting Started
+### 1. Install dependencies
+```
+pip install -r requirements.txt
+```
+### 2.Edit scoring rules in YAML
+
+Open `config/scoring.yml` and change thresholds, weights, or badge ranges.
+
+### 2.Run the pipeline
+```
+python -m src.query --input data/raw/business_data.csv --out data/processed/facts.parquet
+python -m src.scoring --in data/processed/facts.parquet --config config/scoring.yml --out data/processed/scored.parquet
+python -m src.export --in data/processed/scored.parquet --out reports/badges.csv --save-prompts --save-responses
+```
+### 🛠️ Technologies
+- Python — data processing with pandas/DuckDB
+- YAML — human-readable configuration files
+- OpenAI API — AI-generated summaries
+- Shields.io — badge rendering
+
+### 🔎 Transparency
+- Prompts & responses saved for reproducibility
+- Uses synthetic or anonymized business data
+- Rules stored outside code for flexibility
+
+### 👩‍💻 Author
+### Dana Brooks
+📧 danatallent@yahoo.com
+🔗 LinkedIn
+
+“Turning structured business data + prompts into actionable, traceable signals.”
