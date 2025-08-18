@@ -4,9 +4,6 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "data/raw/**"
-      - "config/**"
-      - "src/**"
       - ".github/workflows/promptbadge.yml"
   workflow_dispatch: {}   # allow manual runs from the Actions tab
 
@@ -33,10 +30,10 @@ jobs:
       - name: Run scoring
         run: |
           mkdir -p reports
-          python src/scoring.py \
-            --inp data/raw/business_data.csv \
-            --config config/scoring.yml \
-            --out reports/badges.csv
+          python scoring.py \
+            --inp business_data.csv \
+            --scoring.yml \
+            --out badges.csv
 
       - name: Produce a README-ready markdown table
         run: |
