@@ -1,0 +1,65 @@
+name: PromptBadge Demo
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "data/raw/**"
+      - "config/**"
+      - "src/**"
+      - ".github/workflows/promptbadge.yml"
+  workflow_dispatch: {}   # allow manual runs from the Actions tab
+
+permissions:
+  contents: write   # needed to commit the generated reports back to the repo
+
+jobs:
+  run-scoring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run scoring
+        run: |
+          mkdir -p reports
+          python src/scoring.py \
+            --inp data/raw/business_data.csv \
+            --config config/scoring.yml \
+            --out reports/badges.csv
+
+      - name: Produce a README-ready markdown table
+        run: |
+          python - <<'PY'
+          import pandas as pd, pathlib
+          p = pathlib.Path("reports/badges.csv")
+          df = pd.read_csv(p)
+          # choose columns + sort by score desc; show top 10
+          keep = [c for c in ["name","badge","score","sales_units","revenue","new_clients","repeat_orders","region"] if c in df.columns]
+          out = df.sort_values("score", ascending=False)[keep].head(10)
+          # convert to markdown table
+          md = out.to_markdown(index=False)
+          pathlib.Path("reports/badges_table.md").write_text(md)
+          PY
+
+      - name: Attach CI artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: promptbadge-reports
+          path: reports/
+
+      - name: Commit updated reports back to repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update PromptBadge demo reports [skip ci]"
+          file_pattern: reports/*.csv reports/*.md
