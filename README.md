@@ -21,7 +21,6 @@ Change scoring logic **without editing code**.
 
 - Load data from **CSV**
 - Score each entity using **configurable rules in YAML**
-- Assign **visual priority badges** with [Shields.io](https://shields.io)
 - (Optional) Generate **AI summaries** linked to metrics
 - Save **prompts & responses** for audit (if you wire in an LLM step)
 
@@ -206,15 +205,7 @@ jobs:
 
 ---
 
-## 🏷️ Badges in the README
-
-Render priority with Shields:
-
-```md
-![Top](https://img.shields.io/badge/Priority-Top-brightgreen)
-![Medium](https://img.shields.io/badge/Priority-Medium-yellow)
-![Low](https://img.shields.io/badge/Priority-Low-lightgrey)
-```
+## 🏷️ Badges 
 
 ## 🏆 Top 10 Accounts
 
@@ -253,7 +244,6 @@ SCORING:
 - Python — pandas
 - YAML — human-readable config
 - GitHub Actions — automated demo runs
-- Shields.io — badge rendering
 
 ## 🔎 Transparency
 - Rules stored outside code for flexibility
