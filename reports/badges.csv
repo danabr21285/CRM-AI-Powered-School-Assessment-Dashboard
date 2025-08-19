@@ -1,0 +1,41 @@
+entity_id,name,badge,score,rule_hits,sales_units,revenue,new_clients,repeat_orders,region,market_visits,visited_last_year,has_account_manager
+A00001,Account 001,Low,10,sales_units:202+4 | revenue:266867+2 | new_clients:0+-1 | repeat_orders:292+3 | region[NAM]+2,202,266867,0,292,NAM,6,True,True
+A00002,Account 002,Low,2,sales_units:71+-1 | revenue:230268+2 | new_clients:0+-1 | repeat_orders:20+1 | region[EMEA]+2 | no_manager-1,71,230268,0,20,EMEA,6,True,False
+A00003,Account 003,Low,6,sales_units:82+-1 | revenue:950410+3 | new_clients:11+1 | repeat_orders:137+2 | region[NAM]+2 | no_manager-1,82,950410,11,137,NAM,4,True,False
+A00004,Account 004,Low,9,sales_units:399+6 | revenue:60263+-1 | new_clients:3+1 | repeat_orders:21+1 | region[APAC]+2,399,60263,3,21,APAC,4,True,True
+A00005,Account 005,Medium,13,sales_units:301+6 | revenue:441879+2 | new_clients:12+1 | repeat_orders:87+2 | region[NAM]+2,301,441879,12,87,NAM,1,True,True
+A00006,Account 006,Low,7,sales_units:487+6 | revenue:83104+-1 | new_clients:0+-1 | repeat_orders:11+1 | region[APAC]+2,487,83104,0,11,APAC,1,True,True
+A00007,Account 007,Low,6,sales_units:21+-1 | revenue:378795+2 | new_clients:17+1 | repeat_orders:108+2 | region[APAC]+2,21,378795,17,108,APAC,6,True,True
+A00008,Account 008,Low,8,sales_units:469+6 | revenue:18431+-1 | new_clients:16+1 | repeat_orders:64+2,469,18431,16,64,LATAM,5,True,True
+A00009,Account 009,Low,11,sales_units:489+6 | revenue:604654+3 | new_clients:0+-1 | repeat_orders:43+1 | region[EMEA]+2,489,604654,0,43,EMEA,6,True,True
+A00010,Account 010,Low,8,sales_units:63+-1 | revenue:1952648+4 | new_clients:3+1 | repeat_orders:100+2 | region[EMEA]+2,63,1952648,3,100,EMEA,6,True,True
+A00011,Account 011,Low,8,sales_units:120+4 | revenue:80038+-1 | new_clients:4+1 | repeat_orders:138+2 | region[NAM]+2,120,80038,4,138,NAM,3,True,True
+A00012,Account 012,Low,7,sales_units:13+-1 | revenue:1255041+4 | new_clients:9+1 | repeat_orders:25+1 | region[APAC]+2,13,1255041,9,25,APAC,4,True,True
+A00013,Account 013,Low,9,sales_units:229+4 | revenue:23483+-1 | new_clients:26+2 | repeat_orders:243+3 | region[NAM]+2 | no_manager-1,229,23483,26,243,NAM,4,True,False
+A00014,Account 014,Medium,13,sales_units:307+6 | revenue:226530+2 | new_clients:14+1 | repeat_orders:130+2 | region[EMEA]+2,307,226530,14,130,EMEA,3,True,True
+A00015,Account 015,Low,10,sales_units:149+4 | revenue:320551+2 | new_clients:0+-1 | repeat_orders:203+3 | region[NAM]+2,149,320551,0,203,NAM,1,True,True
+A00016,Account 016,Medium,13,sales_units:433+6 | revenue:760181+3 | new_clients:29+2 | repeat_orders:3+1 | region[EMEA]+2 | no_manager-1,433,760181,29,3,EMEA,5,True,False
+A00017,Account 017,Low,9,sales_units:445+6 | revenue:322283+2 | new_clients:0+-1 | repeat_orders:233+3 | no_manager-1,445,322283,0,233,LATAM,1,True,False
+A00018,Account 018,Low,12,sales_units:289+4 | revenue:619299+3 | new_clients:14+1 | repeat_orders:144+2 | region[EMEA]+2,289,619299,14,144,EMEA,6,True,True
+A00019,Account 019,Low,7,sales_units:289+4 | revenue:55591+-1 | new_clients:40+2 | repeat_orders:131+2,289,55591,40,131,LATAM,6,True,True
+A00020,Account 020,Low,6,sales_units:152+4 | revenue:86807+-1 | new_clients:0+-1 | repeat_orders:173+2 | region[EMEA]+2,152,86807,0,173,EMEA,4,True,True
+A00021,Account 021,Low,3,sales_units:40+-1 | revenue:38044+-1 | new_clients:15+1 | repeat_orders:244+3 | region[NAM]+2 | no_manager-1,40,38044,15,244,NAM,0,False,False
+A00022,Account 022,Low,2,sales_units:88+-1 | revenue:822918+3 | new_clients:0+-1 | repeat_orders:8+1,88,822918,0,8,LATAM,0,False,True
+A00023,Account 023,Low,8,sales_units:435+6 | revenue:48190+-1 | new_clients:0+-1 | repeat_orders:188+2 | region[EMEA]+2,435,48190,0,188,EMEA,2,True,True
+A00024,Account 024,Medium,13,sales_units:580+8 | revenue:33159+-1 | new_clients:3+1 | repeat_orders:234+3 | region[APAC]+2,580,33159,3,234,APAC,0,False,True
+A00025,Account 025,Low,10,sales_units:222+4 | revenue:420804+2 | new_clients:0+-1 | repeat_orders:305+3 | region[EMEA]+2,222,420804,0,305,EMEA,6,True,True
+A00026,Account 026,Medium,16,sales_units:140+4 | revenue:1757611+4 | new_clients:56+3 | repeat_orders:272+3 | region[APAC]+2,140,1757611,56,272,APAC,3,True,True
+A00027,Account 027,Low,2,sales_units:33+-1 | revenue:434400+2 | new_clients:0+-1 | repeat_orders:97+2,33,434400,0,97,LATAM,6,True,True
+A00028,Account 028,Medium,13,sales_units:250+4 | revenue:197373+2 | new_clients:43+2 | repeat_orders:236+3 | region[APAC]+2,250,197373,43,236,APAC,2,True,True
+A00029,Account 029,Low,12,sales_units:471+6 | revenue:976551+3 | new_clients:0+-1 | repeat_orders:84+2 | region[EMEA]+2,471,976551,0,84,EMEA,0,False,True
+A00030,Account 030,Low,5,sales_units:46+-1 | revenue:1522525+4 | new_clients:0+-1 | repeat_orders:2+1 | region[EMEA]+2,46,1522525,0,2,EMEA,0,False,True
+A00031,Account 031,Low,3,sales_units:4+-1 | revenue:6910+-1 | new_clients:14+1 | repeat_orders:152+2 | region[NAM]+2,4,6910,14,152,NAM,2,True,True
+A00032,Account 032,Low,12,sales_units:236+4 | revenue:1967710+4 | new_clients:0+-1 | repeat_orders:214+3 | region[APAC]+2,236,1967710,0,214,APAC,1,True,True
+A00033,Account 033,Low,9,sales_units:141+4 | revenue:143419+2 | new_clients:13+1 | repeat_orders:112+2,141,143419,13,112,LATAM,6,True,True
+A00034,Account 034,Low,2,sales_units:51+-1 | revenue:54268+-1 | new_clients:0+-1 | repeat_orders:295+3 | region[NAM]+2,51,54268,0,295,NAM,3,True,True
+A00035,Account 035,Medium,14,sales_units:250+4 | revenue:722982+3 | new_clients:62+3 | repeat_orders:78+2 | region[APAC]+2,250,722982,62,78,APAC,3,True,True
+A00036,Account 036,Low,9,sales_units:512+8 | revenue:62623+-1 | new_clients:0+-1 | repeat_orders:6+1 | region[EMEA]+2,512,62623,0,6,EMEA,2,True,True
+A00037,Account 037,Low,10,sales_units:385+6 | revenue:935515+3 | new_clients:0+-1 | repeat_orders:115+2,385,935515,0,115,LATAM,1,True,True
+A00038,Account 038,Low,3,sales_units:44+-1 | revenue:229556+2 | new_clients:0+-1 | repeat_orders:5+1 | region[NAM]+2,44,229556,0,5,NAM,3,True,True
+A00039,Account 039,Low,10,sales_units:327+6 | revenue:363307+2 | new_clients:0+-1 | repeat_orders:43+1 | region[NAM]+2,327,363307,0,43,NAM,3,True,True
+A00040,Account 040,Low,8,sales_units:329+6 | revenue:42941+-1 | new_clients:0+-1 | repeat_orders:124+2 | region[NAM]+2,329,42941,0,124,NAM,1,True,True
