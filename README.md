@@ -216,17 +216,9 @@ Render priority with Shields:
 ![Low](https://img.shields.io/badge/Priority-Low-lightgrey)
 ```
 
-Example table:
+## 🏆 Top 10 Accounts
 
-```md
-| name        | badge | score | sales_units | revenue | new_clients | repeat_orders | region |
-|-------------|-------|-------|-------------|---------|-------------|---------------|--------|
-| Alpha Corp  | ![Top](https://img.shields.io/badge/Priority-Top-brightgreen) | 22 | 620 | 1200000 | 65 | 210 | NAM |
-| Beta Ltd    | ![Medium](https://img.shields.io/badge/Priority-Medium-yellow) | 15 | 280 | 450000  | 15 |  80 | EMEA |
-| Gamma Inc   | ![Low](https://img.shields.io/badge/Priority-Low-lightgrey)    |  8 |  90 |  80000  |  5 |  10 | APAC |
-```
-
-> Replace with rows from `reports/badges.csv` (or include `reports/badges_table.md` output).
+👉 [View latest badge table](reports/badges_table.md)
 
 ---
 
