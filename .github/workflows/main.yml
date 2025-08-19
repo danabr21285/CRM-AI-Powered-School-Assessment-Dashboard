@@ -4,11 +4,14 @@ on:
   push:
     branches: [ main ]
     paths:
-      - ".github/workflows/promptbadge.yml"
-  workflow_dispatch: {}   # allow manual runs from the Actions tab
+      - "business_data.csv"
+      - "scoring.yml"
+      - "scoring.py"
+      - ".github/workflows/main.yml"
+  workflow_dispatch: {}
 
 permissions:
-  contents: write   # needed to commit the generated reports back to the repo
+  contents: write
 
 jobs:
   run-scoring:
@@ -27,13 +30,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Sanity check files exist
+        run: |
+          test -f business_data.csv || (echo "Missing business_data.csv" && exit 1)
+          test -f scoring.yml || (echo "Missing scoring.yml" && exit 1)
+          test -f scoring.py || (echo "Missing scoring.py" && exit 1)
+
       - name: Run scoring
         run: |
           mkdir -p reports
           python scoring.py \
             --inp business_data.csv \
-            --scoring.yml \
-            --out badges.csv
+            --config scoring.yml \
+            --out reports/badges.csv
 
       - name: Produce a README-ready markdown table
         run: |
@@ -41,15 +50,14 @@ jobs:
           import pandas as pd, pathlib
           p = pathlib.Path("reports/badges.csv")
           df = pd.read_csv(p)
-          # choose columns + sort by score desc; show top 10
           keep = [c for c in ["name","badge","score","sales_units","revenue","new_clients","repeat_orders","region"] if c in df.columns]
           out = df.sort_values("score", ascending=False)[keep].head(10)
-          # convert to markdown table
           md = out.to_markdown(index=False)
           pathlib.Path("reports/badges_table.md").write_text(md)
+          print(md)
           PY
 
-      - name: Attach CI artifact (optional)
+      - name: Upload artifacts (optional)
         uses: actions/upload-artifact@v4
         with:
           name: promptbadge-reports
